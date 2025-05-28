@@ -130,6 +130,11 @@ input:focus {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
 }
+.weather-details{
+    font-size: 20px;
+    padding-left: 50px;
+
+}
 
 .news-grid {
     display: grid;
