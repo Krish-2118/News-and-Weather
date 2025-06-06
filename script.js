@@ -1,7 +1,5 @@
-// API Keys - Replace these with your actual API keys
 const WEATHER_API_KEY = '57a3370aa89a77dbe0a7a068f44255e8';
-const NEWS_API_KEY = '54a33a04bc4f40e8bcdb3394c5f6b45d';
-
+const NEWS_API_KEY = '3d10d1c9a27c8b91313ea86339ab7ea3'; // 
 // DOM Elements
 const weatherBtn = document.getElementById('weatherBtn');
 const newsBtn = document.getElementById('newsBtn');
@@ -22,7 +20,7 @@ newsBtn.addEventListener('click', () => showSearchSection('news'));
 searchBtn.addEventListener('click', handleSearch);
 closeModal.addEventListener('click', () => errorModal.style.display = 'none');
 
-// Close modal when clicking outside
+// to close
 window.addEventListener('click', (e) => {
     if (e.target === errorModal) {
         errorModal.style.display = 'none';
@@ -88,18 +86,18 @@ async function getWeather(city) {
 
 async function getNews(query) {
     try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${NEWS_API_KEY}`);
+        const response = await fetch(`https://gnews.io/api/v4/search?q=${query}&token=${NEWS_API_KEY}&lang=en&max=6`);
         const data = await response.json();
 
-        if (data.status !== 'ok') {
+        if (!data.articles) {
             showError('Error fetching news');
             return;
         }
 
         newsContainer.style.display = 'grid';
-        newsContainer.innerHTML = data.articles.slice(0, 6).map(article => `
+        newsContainer.innerHTML = data.articles.map(article => `
             <div class="news-card">
-                <img src="${article.urlToImage || 'https://via.placeholder.com/300x200'}" alt="${article.title}">
+                <img src="${article.image || 'https://via.placeholder.com/300x200'}" alt="${article.title}">
                 <h3>${article.title}</h3>
                 <p>${article.description || 'No description available'}</p>
                 <a href="${article.url}" target="_blank">Read More</a>
