@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Weather App</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"
 </head>
 <body>
     <div class="container">
         <header>
             <h1>News & Weather Dashboard</h1>
-            <p class="subtitle">Choose what you want to explore</p>
+            <p class="subtitle">Stay informed with real-time updates</p>
         </header>
 
         <div class="main-buttons">
@@ -28,27 +28,39 @@
 
         <div class="search-section" style="display: none;">
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Enter city name...">
-                <button id="searchBtn">Search</button>
+                <input type="text" id="searchInput" placeholder="Enter city name or search keywords...">
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i>
+                    Search
+                </button>
             </div>
         </div>
 
         <div class="content">
             <div id="weatherInfo" class="weather-card" style="display: none;">
-                <div class="weather-loading">Enter a city to see weather information</div>
+                <div class="weather-loading">
+                    <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>
+                    Enter a city to see weather information
+                </div>
             </div>
 
             <div id="newsContainer" class="news-grid" style="display: none;">
-                <div class="news-loading">Enter a keyword to search news</div>
+                <div class="news-loading">
+                    <i class="fas fa-search" style="margin-right: 10px;"></i>
+                    Enter a keyword to search news
+                </div>
             </div>
         </div>
 
         <div id="errorModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
+                <h3 style="margin-bottom: 15px; color: #fca5a5;">
+                    <i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>
+                    Error
+                </h3>
                 <p id="errorMessage"></p>
             </div>
-            
         </div>
     </div>
     <script src="script.js"></script>
